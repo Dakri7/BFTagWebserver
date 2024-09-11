@@ -1,0 +1,10 @@
+@for (vehicle of vehicles; track vehicle) {
+    <mat-form-field>
+        <mat-label>{{vehicle}}</mat-label>
+        <mat-select>
+            @for (group of groups; track group) {
+                <mat-option [value]="group">{{group}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+}
