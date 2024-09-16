@@ -20,7 +20,7 @@ export class AlarmServerConnectionService {
   }
 
   getStreetNames() {
-    return this.http.get<String[]>(this.apiUrl + "street-names");
+    return this.http.get<string[]>(this.apiUrl + "street-names");
   }
 
   getAAO(category: string) {

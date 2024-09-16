@@ -22,6 +22,8 @@ export class GroupVehicleSelectionComponent {
     this.fetchGroups();
   }
 
+  
+
   fetchVehicles() {
     this.apiConn.getVehicles().subscribe(
       (response) => {

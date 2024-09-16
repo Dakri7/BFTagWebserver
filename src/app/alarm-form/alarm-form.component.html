@@ -1,14 +1,37 @@
 <app-alarm-type-selector #alarmType></app-alarm-type-selector>
 <app-group-vehicle-selection #vehicleGroup></app-group-vehicle-selection>
 
+<form>
+    <mat-form-field>
+        <mat-label>Straße</mat-label>
+        <input type="text"
+                placeholder="Straße"
+                aria-label="Straße"
+                matInput
+                [formControl]="myControl"
+                [matAutocomplete]="auto"
+                [(ngModel)]="streetName">
+        <mat-autocomplete #auto="matAutocomplete">
+            @for (option of filteredOptions | async; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+            }
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+
+<mat-form-field class="example-full-width">
+    <mat-label>Haunummer</mat-label>
+    <input matInput placeholder="" [value]="houseNumber">
+</mat-form-field>
+
 <mat-form-field class="example-full-width">
     <mat-label>Meldender</mat-label>
-    <input matInput placeholder="" value="">
+    <input matInput placeholder="" [value]="reportant">
 </mat-form-field>
 
 <mat-form-field class="example-full-width">
     <mat-label>Zusatzinformationen</mat-label>
-    <input matInput placeholder="" value="">
+    <input matInput placeholder="" [value]="additionalInfo">
 </mat-form-field>
 
 <button (click)="alarm()">Alarmieren</button>
