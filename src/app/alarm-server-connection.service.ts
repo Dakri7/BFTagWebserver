@@ -9,7 +9,7 @@ export class AlarmServerConnectionService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = "http://localhost/api/";
+  private apiUrl = "http://192.168.178.206/api/";
 
   getGroups() {
     return this.http.get<String[]>(this.apiUrl + "groups");
