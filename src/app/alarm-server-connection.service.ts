@@ -29,7 +29,7 @@ export class AlarmServerConnectionService {
   }
 
   postAlarm(ao: AlarmObject){
-    this.http.post(this.apiUrl + "alarm", ao).subscribe();
+    return this.http.post(this.apiUrl + "alarm", ao);
   }
 }
 
