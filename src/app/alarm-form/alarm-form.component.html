@@ -23,19 +23,19 @@
     <!-- Hausnummer Field -->
     <mat-form-field class="house-number-field">
       <mat-label>Hausnummer</mat-label>
-      <input matInput placeholder="" [value]="houseNumber">
+      <input matInput placeholder="" [(ngModel)]="houseNumber">
     </mat-form-field>
   </div>
 
   <!-- Other Fields -->
   <mat-form-field>
     <mat-label>Meldender</mat-label>
-    <input matInput placeholder="" [value]="reportant">
+    <input matInput placeholder="" [(ngModel)]="reportant">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Zusatzinformationen</mat-label>
-    <input matInput placeholder="" [value]="additionalInfo">
+    <input matInput placeholder="" [(ngModel)]="additionalInfo">
   </mat-form-field>
 
   <button (click)="alarm()">Alarmieren</button>
