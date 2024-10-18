@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AlarmTypeSelectorComponent } from '../alarm-type-selector/alarm-type-selector.component';
 import {AsyncPipe} from '@angular/common';
 import { GroupVehicleSelectionComponent } from '../group-vehicle-selection/group-vehicle-selection.component'
@@ -12,7 +13,7 @@ import {map, startWith} from 'rxjs/operators';
 @Component({
   selector: 'app-alarm-form',
   standalone: true,
-  imports: [AlarmTypeSelectorComponent, GroupVehicleSelectionComponent, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, AsyncPipe],
+  imports: [AlarmTypeSelectorComponent, GroupVehicleSelectionComponent, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, AsyncPipe, FormsModule],
   templateUrl: './alarm-form.component.html',
   styleUrl: './alarm-form.component.css'
 })
