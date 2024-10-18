@@ -1,0 +1,17 @@
+.radio-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns for grid */
+    gap: 16px; /* Adjust spacing between buttons */
+    margin-bottom: 16px; /* Add space below the radio buttons */
+    padding-left: 16px; /* Add space from the left side of the screen */
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-form-field {
+    margin-bottom: 16px; /* Add space between form fields */
+    margin-bottom: 16px; /* Space between the form fields */
+  }

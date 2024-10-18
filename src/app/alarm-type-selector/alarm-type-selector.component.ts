@@ -39,13 +39,10 @@ export class AlarmTypeSelectorComponent implements OnInit{
     if(cat === undefined){
       this.aao = [];
     } else {
-      this.apiConn.getAAO(cat).subscribe(
-        (response) => {
-          this.aao = response;
-        },
-        (error) => {
-          console.error(error);
-        })
+      this.apiConn.getAAO(cat).subscribe({
+        next: (response) => {console.log(response); this.aao = response},
+        error: (error) => alert(error.message)
+      })
     }
     }
     

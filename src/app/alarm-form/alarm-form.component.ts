@@ -19,6 +19,8 @@ import {map, startWith} from 'rxjs/operators';
 export class AlarmFormComponent implements OnInit{
   @ViewChild(AlarmTypeSelectorComponent)
   alarmTypeSelector!: AlarmTypeSelectorComponent;
+  @ViewChild(GroupVehicleSelectionComponent)
+  groupVehicleSelector!: GroupVehicleSelectionComponent;
   myControl = new FormControl('');
   filteredOptions!: Observable<string[]>;
   streetNames: string[] = [];
@@ -45,13 +47,10 @@ export class AlarmFormComponent implements OnInit{
   }
 
   fetchStreetNames() {
-    this.apiConn.getStreetNames().subscribe(
-      (response) => {
-        this.streetNames = response;
-      },
-      (error) => {
-        console.error(error);
-      })
+    this.apiConn.getStreetNames().subscribe({
+      next: (response) => this.streetNames = response,
+      error: (error) => alert(error.message)
+    })
   }
 
   alarm() {
@@ -61,14 +60,17 @@ export class AlarmFormComponent implements OnInit{
       concreteKeyword: this.alarmTypeSelector.concreteKeyword,
       street: this.streetName,
       houseNumber: this.houseNumber,
-      vehiclesWithGroups: {"Gruppe 1": "HLF",
-        "Gruppe 2": "LF8"
-      },
+      vehiclesWithGroups: Object.fromEntries(this.groupVehicleSelector.getVehiclesForGroups()),
       reportant: this.reportant,
       additionalInfo: this.additionalInfo
     };
-    console.log("ALARM!");
-    this.apiConn.postAlarm(ao);
+    if(window.confirm(this.alarmTypeSelector.keyword + " alarmieren?")){
+      console.log("ALARM!");
+      this.apiConn.postAlarm(ao).subscribe({
+        next: () => alert("Alarmierung erfolgreich"),
+        error: () => alert("Alarmirung fehlgeschlagen")
+      });
+    }
   }
 }
 

@@ -1,23 +1,28 @@
 <mat-radio-group [(ngModel)]="category" (change)="categoryChange($event)" aria-label="Meldebild">
-    <mat-radio-button value="Brand">Brand</mat-radio-button>
-    <mat-radio-button value="Gefahrstoff">Gefahrstoff</mat-radio-button>
-    <mat-radio-button value="Unwetter">Unwetter</mat-radio-button>
-    <mat-radio-button value="Hilfeleistung">Hilfeleistung</mat-radio-button>
-    <mat-radio-button value="Wasser">Wasser</mat-radio-button>
-    <mat-radio-button value="Sonderstichwort">Sonderstichwort</mat-radio-button>
+    <div class="radio-container">
+        <mat-radio-button value="Brand">Brand</mat-radio-button>
+        <mat-radio-button value="Gefahrstoff">Gefahrstoff</mat-radio-button>
+        <mat-radio-button value="Unwetter">Unwetter</mat-radio-button>
+        <mat-radio-button value="Hilfeleistung">Hilfeleistung</mat-radio-button>
+        <mat-radio-button value="Wasser">Wasser</mat-radio-button>
+        <mat-radio-button value="Sonderstichwort">Sonderstichwort</mat-radio-button>
+    </div>
 </mat-radio-group>
 
-<mat-form-field>
-    <mat-label>Stichwort</mat-label>
-    <mat-select [(ngModel)]="keyword">
-        @for (keyword of aao; track keyword) {
-            <mat-option [value]="keyword">{{keyword}}</mat-option>
-        }
-    </mat-select>
-</mat-form-field>
+
+<div class="form-container">
+    <mat-form-field>
+        <mat-label>Stichwort</mat-label>
+        <mat-select [(ngModel)]="keyword">
+            @for (keyword of aao; track keyword) {
+                <mat-option [value]="keyword">{{keyword}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
 
 
-<mat-form-field class="example-full-width">
-    <mat-label>Stichwort</mat-label>
-    <input [(ngModel)]="concreteKeyword" matInput [placeholder]="keyword.replace(shrotKeywordRegex, '')" value="">
-</mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Stichwort</mat-label>
+        <input [(ngModel)]="concreteKeyword" matInput [placeholder]="keyword.replace(shrotKeywordRegex, '')" value="">
+    </mat-form-field>
+</div>

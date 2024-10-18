@@ -1,4 +1,31 @@
-.example-button-row {
-    display: table-cell;
-    max-width: 600px;
+app-alarm-type-selector {
+    max-width: 400px
+}
+
+.address-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px; /* Adds margin below the Straße and Hausnummer fields */
+  }
+  
+  .street-field,
+  .house-number-field {
+    margin-bottom: 10px; /* Adds margin below each input field */
+  }
+  
+  .street-field {
+    flex: 3;
+  }
+  
+  .house-number-field {
+    flex: 1;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px; /* Adds margin below other fields */
+  }
+  
+  button {
+    margin-top: 20px; /* Adds space above the button */
   }
