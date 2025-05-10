@@ -1,3 +1,4 @@
+import { environment } from '../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,7 +10,7 @@ export class AlarmServerConnectionService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = "http://83.135.231.160/api/";
+  private apiUrl = environment.apiUrl;
 
   getGroups() {
     return this.http.get<String[]>(this.apiUrl + "groups");
